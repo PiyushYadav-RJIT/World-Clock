@@ -9,8 +9,9 @@ const UI = {
     
   function updateClock(){
     // GETTING TIME
-    const now = new Date();
-    const date = now.getDate();
+    const date = new Date();
+    const now = utcToZonedTime(date, this.clockEl.datset.locale);
+    // const date = now.getDate();
     const seconds = (now.getSeconds() + now.getMilliseconds() / 1000) / 60 * 360;
     const minutes = (now.getMinutes() + now.getSeconds() / 60) / 60 * 360;
     const hours = (now.getHours() + now.getMinutes() / 60) / 12 * 360;
